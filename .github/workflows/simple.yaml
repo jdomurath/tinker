@@ -16,7 +16,7 @@ jobs:
           name: results
           path: output.txt
   job1:
-    needs: job1
+    needs: job0
     runs-on: ubuntu-latest
     steps:
       - name: Download results
