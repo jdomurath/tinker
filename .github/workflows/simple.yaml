@@ -1,0 +1,28 @@
+name: With Dependencies and artifacts (simple)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job0:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create output
+        run: |
+          echo "Hello from job0" > output.txt
+      - name: Upload results
+        uses: actions/upload-artifact@v2
+        with:
+          name: results
+          path: output.txt
+  job1:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download results
+        uses: actions/download-artifact@v2
+        with:
+          name: results
+      - name: checking
+        run: |
+          cat output.txt
