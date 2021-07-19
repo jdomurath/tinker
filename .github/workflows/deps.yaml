@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  prepare:
+  run:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,12 +16,23 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-  run:
-    needs: prepare
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
       - name: running code
         run: |
           python create_output.py
+          cat output.txt
+      - name: Upload results
+        uses: actions/upload-artifact@v2
+        with:
+          name: results
+          path: output.txt
+  check:
+    needs: run
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download results
+        uses: actions/download-artifact@v2
+        with:
+          name: results
+      - name: checking
+        run: |
           cat output.txt
