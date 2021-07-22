@@ -24,6 +24,7 @@ jobs:
       - name: Run Simualtion
         run: |
           echo "Run Simualtion"
+          exit 1
       - name: Check Results
         run: |
           echo "Check Results"
