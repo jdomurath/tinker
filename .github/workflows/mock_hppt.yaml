@@ -1,0 +1,30 @@
+name: HPPT Case 1
+
+on:
+  workflow_dispatch:
+
+jobs:
+  mesh:
+    name: Meshing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Meshes
+        run: |
+          echo "Create Meshes"
+      - name: Check Meshes
+        run: |
+          echo "Check Meshes"
+  dry:
+    name: Dry Simulations
+    needs: mesh
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Simualtion
+        run: |
+          echo "Setup Simualtion"
+      - name: Run Simualtion
+        run: |
+          echo "Run Simualtion"
+      - name: Check Results
+        run: |
+          echo "Check Results"
