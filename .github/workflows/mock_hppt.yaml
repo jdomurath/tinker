@@ -28,3 +28,17 @@ jobs:
       - name: Check Results
         run: |
           echo "Check Results"
+  wet:
+    name: Wet Simulations
+    needs: dry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Simualtion
+        run: |
+          echo "Setup Simualtion"
+      - name: Run Simualtion
+        run: |
+          echo "Run Simualtion"
+      - name: Check Results
+        run: |
+          echo "Check Results"
