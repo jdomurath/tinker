@@ -15,7 +15,7 @@ jobs:
         run: |
           echo "Check Meshes"
   dry:
-    name: Dry Simulations
+    name: Dry Rolling Simulations
     needs: mesh
     runs-on: ubuntu-latest
     steps:
@@ -29,7 +29,7 @@ jobs:
         run: |
           echo "Check Results"
   wet:
-    name: Wet Simulations
+    name: Wet Rolling Simulations
     needs: dry
     runs-on: ubuntu-latest
     steps:
