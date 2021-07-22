@@ -1,0 +1,43 @@
+name: TI_SUMMER_Model1 
+on:
+  workflow_dispatch:
+
+jobs:
+  mesh1:
+    name: Meshing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Meshes
+        run: |
+          echo "Create Meshes"
+      - name: Check Meshes
+        run: |
+          echo "Check Meshes"
+  dry1:
+    name: Dry Rolling Simulations
+    needs: mesh1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Simualtion
+        run: |
+          echo "Setup Simualtion"
+      - name: Run Simualtion
+        run: |
+          echo "Run Simualtion"
+      - name: Check Results
+        run: |
+          echo "Check Results"
+  wet1:
+    name: Wet Rolling Simulations
+    needs: dry1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Simualtion
+        run: |
+          echo "Setup Simualtion"
+      - name: Run Simualtion
+        run: |
+          echo "Run Simualtion"
+      - name: Check Results
+        run: |
+          echo "Check Results"
