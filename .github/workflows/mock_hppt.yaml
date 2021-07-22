@@ -1,4 +1,4 @@
-name: HPPT Case 1
+name: TI_SUMMER_Model1
 
 on:
   workflow_dispatch:
